@@ -11,15 +11,21 @@ const client = new StreamVideoServerClient(
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = req.headers['api-key']
   if (!apiKey || Array.isArray(apiKey) || apiKey.trim() !== process.env.API_KEY) {
-    throw new Error("api key is missing, empty, or not a valid api key.");
+    return res.status(401).json({
+      message: "api key is missing, empty, or not a valid api key."
+    })
   }
 
   const { userId } = req.query
   if (!userId || Array.isArray(userId) || userId.trim() === '') {
-    throw new Error("User ID is missing, empty, or not a valid string.");
+    return res.status(400).json({
+      message: "User ID is missing, empty, or not a valid string."
+    })
   }
+
   const token = client.createToken(userId)
-  return res.json({
+
+  return res.status(200).json({
     userId: userId,
     token: token,
   })
