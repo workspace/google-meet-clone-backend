@@ -16,6 +16,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const token = client.createToken(userId)
   return res.json({
     userId: userId,
-    token: `Hello ${name}!`,
+    token: token,
   })
 }
