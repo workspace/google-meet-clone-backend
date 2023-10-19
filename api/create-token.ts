@@ -9,6 +9,12 @@ const client = new StreamVideoServerClient(
 );
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== "POST") {
+    return res.status(400).json({
+      message: "allow only POST"
+    })
+  }
+
   const apiKey = req.headers['api-key']
   if (!apiKey || Array.isArray(apiKey) || apiKey.trim() !== process.env.API_KEY) {
     return res.status(401).json({
@@ -16,7 +22,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     })
   }
 
-  const { userId } = req.query
+  const userId = req.body.userId
   if (!userId || Array.isArray(userId) || userId.trim() === '') {
     return res.status(400).json({
       message: "User ID is missing, empty, or not a valid string."
