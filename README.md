@@ -4,7 +4,7 @@
 
 1. Deploy this serverless function using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=stream-video-serverless):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/workspace/stream-video-serverless&project-name=stream-video-serverless&repository-name=stream-video-serverless)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?s=https://github.com/workspace/stream-video-serverless&project-name=stream-video-serverless&repository-name=stream-video-serverless)
 
 2. Set Environment Variables with your Stream Video SDK's `API_KEY` and `API_SECRET`.
 <img width="1585" alt="image" src="https://github.com/workspace/stream-video-serverless/assets/7759511/aa4c3de9-6917-4323-951d-8f11ffe760d8">
